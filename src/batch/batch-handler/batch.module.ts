@@ -13,7 +13,10 @@ import {path} from 'app-root-path';
 console.log(path)
 @Module({
   imports: [
-    ConfigModule.forRoot( {envFilePath: path + '/.env'}),
+    ConfigModule.forRoot( {
+      envFilePath: path + '/.env',
+      ignoreEnvFile: process.env.TARGET_ENV != 'development'
+    }),
     TypeOrmModule.forRoot({
       type: "postgres",
       host: process.env.DB_HOST,
