@@ -22,7 +22,7 @@ import { QuestionChoicesEntity } from './postgres/question-choices/question-choi
 
 @Module({
   imports: [
-    ConfigModule.forRoot(),
+    ConfigModule.forRoot({ignoreEnvFile: process.env.TARGET_ENV == 'production'}),
     WebhookModule,
     LineModule,
     LineUserModule,

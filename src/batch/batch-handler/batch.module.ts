@@ -10,12 +10,12 @@ import { QuestionsModule } from '../../postgres/questions/questions.module';
 import { QuestionsEntity } from '../../postgres/questions/questions.entity';
 import { QuestionChoicesEntity } from '../../postgres/question-choices/question-choices.entity';
 import {path} from 'app-root-path';
-console.log(path)
+
 @Module({
   imports: [
     ConfigModule.forRoot( {
       envFilePath: path + '/.env',
-      ignoreEnvFile: process.env.TARGET_ENV != 'development'
+      ignoreEnvFile: process.env.TARGET_ENV == 'production'
     }),
     TypeOrmModule.forRoot({
       type: "postgres",
