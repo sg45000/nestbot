@@ -10,7 +10,7 @@ export class QuestionsEntity {
   @Column()
   title: string
 
-  @Column()
+  @Column({nullable: true})
   image_url: string
 
   @OneToMany(type => QuestionChoicesEntity, questionChoices => questionChoices.question)

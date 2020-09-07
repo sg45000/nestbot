@@ -12,8 +12,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { LineUserEntity } from './postgres/line-user/line-user.entity';
 import { RandomMessageModule } from './postgres/random-message/random-message.module';
 import { RandomMessageEntity } from './postgres/random-message/random-message.entity';
-import { BatchService } from './batch/batch-handler/batch.service';
-import { BatchModule } from './batch/batch-handler/batch.module';
 import { QuestionsService } from './postgres/questions/questions.service';
 import { QuestionsModule } from './postgres/questions/questions.module';
 import { QuestionChoicesModule } from './postgres/question-choices/question-choices.module';

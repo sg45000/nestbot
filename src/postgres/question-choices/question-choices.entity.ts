@@ -17,7 +17,7 @@ export class QuestionChoicesEntity {
   @JoinColumn({ name: 'question_id', referencedColumnName: 'id' })
   readonly question?: QuestionsEntity;
 
-  @Column()
+  @Column({nullable: true})
   next_question_id: number
 
   @ManyToOne(type => QuestionsEntity, questions => questions.id)

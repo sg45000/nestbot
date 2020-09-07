@@ -33,7 +33,8 @@ export class LineUserService {
   async userProfileToDbFormat(userProfile: UserProfileDto): Promise<any> {
     return {
       name: userProfile.displayName,
-      line_user_id: userProfile.userId
+      line_user_id: userProfile.userId,
+      active: true
     }
   }
 }

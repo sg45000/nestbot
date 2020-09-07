@@ -15,7 +15,7 @@ export class BatchService {
 
   async pushMessage(){
 
-    const question = await this.questionsService.findOneByPrimaryId(1)
+    const question = await this.questionsService.findOneByPrimaryId(2)
 
     await this.lineService.pushMessage(
       process.env.OWNER_ID,

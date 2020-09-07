@@ -9,9 +9,12 @@ export class LineUserEntity {
   @Column()
   name: string;
 
-  @Column()
+  @Column({ unique: true })
   line_user_id: string;
 
+  @Column({ default: false })
+  host?: boolean;
+
   @Column()
-  host: boolean;
+  active: boolean;
 }

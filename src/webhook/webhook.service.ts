@@ -47,5 +47,6 @@ export class WebhookService {
   async follow(webhookEvents: WebhookEventsDto){
     const userProfile = await this.lineService.getUserProfileFromLine(webhookEvents.events[0].source.userId)
     await this.lineUserService.upsert(userProfile)
+    await this.lineService.replyMessage(webhookEvents.events[0].replyToken, textMessage(`フォローありがとう！これから${userProfile.displayName}さんの生活をサポートするよ！`))
   }
 }
