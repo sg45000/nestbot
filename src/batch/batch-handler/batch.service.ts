@@ -16,15 +16,17 @@ export class BatchService {
   async pushMessage(){
 
     const question = await this.questionsService.findOneByPrimaryId(2)
-
-    await this.lineService.pushMessage(
-      process.env.OWNER_ID,
-      CustomQuestionMessage(
-        question.title,
-        question.image_url,
-        question.question_choices.map(q => q.choice_text),
-        question.question_choices.map(q => q.next_question_id)
+    const allLineUsers = await this.lineUserService.findAll()
+    allLineUsers.forEach((user) => {
+      this.lineService.pushMessage(
+        user.line_user_id,
+        CustomQuestionMessage(
+          question.title,
+          question.image_url,
+          question.question_choices.map(q => q.choice_text),
+          question.question_choices.map(q => q.next_question_id)
+        )
       )
-    )
+    })
   }
 }
